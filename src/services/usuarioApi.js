@@ -1,7 +1,13 @@
 // src/services/usuarioApi.js
 
 // URL base del backend Spring que expone el CRUD de usuarios.
-const API_URL = 'http://localhost:8080/api/usuarios';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+const API_URL = `${BASE_URL}/usuarios`;
+
+export const getusuarios = async () => {
+  const response = await fetch(API_URL);
+  return await response.json();
+  };
 
 // Convierte la respuesta HTTP en JSON y estandariza el error para mostrarlo en la UI.
 async function parseResponse(response) {

@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:8080/api/detalles'; // Ajusta la ruta según tu controller
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+const API_URL = `${BASE_URL}/detalles`; // Ajusta la ruta según tu controller
 
 async function parseResponse(response) {
   if (!response.ok) {

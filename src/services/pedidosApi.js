@@ -1,5 +1,11 @@
 // src/services/pedidosApi.js
-const API_URL = 'http://localhost:8080/api/pedidos';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+const API_URL = `${BASE_URL}/pedidos`;
+
+export const getpedidos = async () => {
+  const response = await fetch(API_URL);
+  return await response.json();
+  };
 
 async function parseResponse(response) {
   if (!response.ok) {

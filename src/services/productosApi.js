@@ -1,5 +1,11 @@
 // URL base del backend Spring que expone el CRUD de productos.
-const API_URL = 'http://localhost:8080/api/productos';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+const API_URL = `${BASE_URL}/productos`;
+
+export const getproductos = async () => {
+  const response = await fetch(API_URL);
+  return await response.json();
+  };
 
 // Convierte la respuesta HTTP en JSON y estandariza el error para mostrarlo en UI.
 async function parseResponse(response) {
