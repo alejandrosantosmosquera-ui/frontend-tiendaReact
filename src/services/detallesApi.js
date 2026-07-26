@@ -1,5 +1,10 @@
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
-const API_URL = `${BASE_URL}/detalles`; // Ajusta la ruta según tu controller
+const API_URL = `${BASE_URL}/detalles`;
+
+export const getdetalles = async () => {
+  const response = await fetch(API_URL);
+  return await response.json();
+}; // Ajusta la ruta según tu controller
 
 async function parseResponse(response) {
   if (!response.ok) {

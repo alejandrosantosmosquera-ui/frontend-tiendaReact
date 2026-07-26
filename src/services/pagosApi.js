@@ -4,6 +4,7 @@ const API_URL = `${BASE_URL}/pagos`;
 export const getpagos = async () => {
   const response = await fetch(API_URL);
   return await response.json();
+  };
 
 async function parseResponse(response) {
   if (!response.ok) {
